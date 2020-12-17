@@ -8,18 +8,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // import plugin clean-webpack-plugin,
 // ※: the imported plugin is an object,need use {} to resolve
-const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // installed via npm
+const { CleanWebpackPlugin } = require('clean-webpack-plugin') // installed via npm
+
+// import webpack
+
+const webpack = require('webpack')
 
 module.exports = {
-    mode:'development',
-    // pack entry
     entry:'./src/main.js',
     // pack output
     output:{
         filename:'bundle.js',
-        path:path.resolve(__dirname,'dist')
+        path:path.resolve(__dirname,'../dist')
     },
-
     // pack rule
     module:{
         rules:[{
@@ -40,9 +41,18 @@ module.exports = {
             use:[
             'style-loader',
             'css-loader',
-            // 'postcss-loader',
+            'postcss-loader',
             'stylus-loader']
-        }]
+        },{
+            test: /\.m?js$/,
+            exclude: /node_modules/,
+            use: {
+              loader: "babel-loader",
+              options: {
+                presets: ['@babel/preset-env']
+              }
+            }
+          }]
     },
 
     // plugin
@@ -55,7 +65,10 @@ module.exports = {
     ],
     resolve:{
         alias:{
-            'vue':'vue/dist/vue.js'
+            'vue':'vue/dist/vue.js',
+            '@':path.resolve(__dirname,'../src'),
+            'styles':path.resolve(__dirname,'../src/assets/styles'),
+            'images':path.resolve(__dirname,'../src/assets/images'),
         }
     }
 

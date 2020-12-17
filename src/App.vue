@@ -1,28 +1,24 @@
 <template>
-    <div>
-        <h1>this is App</h1>
-    </div>
+  <div>
+    <main-header></main-header>
+    <main-todo></main-todo>
+  </div>
 </template>
 
 <script>
-import img from './assets/images/1.jpg'
-// import './assets/images/search-icon.svg'
-// import './assets/images/panda-search.svg'
+  import './assets/styles/global.styl'
 
-// import './assets/styles/test.css'
+  import MainHeader from './components/MainHeader.vue' // component instance
+  import MainTodo from './components/MainTodo/MainTodo.vue'
 
-import './assets/styles/global.styl'
-
-export default {
-    name:'App',
-    // created() {
-    //     console.log(img)
-    // },
-}
+  export default {
+    name: 'App',
+    components: {
+      // component name : component instance
+      MainHeader: MainHeader,
+      MainTodo, //
+    },
+  }
 </script>
 
-<style lang="stylus" scoped> // scoped means this only effect current file
-h1
-  color:red
-  transform:translate(100px,100px)
-</style>
+<style lang="stylus" scoped></style>
