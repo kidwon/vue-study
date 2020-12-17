@@ -12,7 +12,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin') // installed via 
 
 // import webpack
 
-const webpack = require('webpack')
+// const webpack = require('webpack')
 
 module.exports = {
     entry:'./src/main.js',

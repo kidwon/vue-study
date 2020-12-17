@@ -8,6 +8,7 @@
 按理说这个插件的执行时间点应该是在webpack打包之前，不应该受plugins顺序的影响，但是事实并非如此，先看我按教程写的插件顺序
 
 ```javascript
+// webpack config 片断
 plugins:[
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
@@ -19,9 +20,8 @@ plugins:[
 
 ### 问题
 
-package.json片断
-
 ```json
+// package.json片断
  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -40,6 +40,7 @@ npm run build
 ### 解决
 
 ```javascript
+// webpack config 片断
 plugins:[
         new VueLoaderPlugin(),
         // 调整顺序，先清除
@@ -51,6 +52,8 @@ plugins:[
 ```
 
 ## 坑2，webpack-dev-server出错
+
+
 
 ## 坑3，merge
 
