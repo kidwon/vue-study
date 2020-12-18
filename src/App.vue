@@ -2,6 +2,7 @@
   <div>
     <main-header></main-header>
     <main-todo></main-todo>
+    <main-footer></main-footer>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 
   import MainHeader from './components/MainHeader.vue' // component instance
   import MainTodo from './components/MainTodo/MainTodo.vue'
+  import MainFooter from './components/MainFooter.vue'
 
   export default {
     name: 'App',
@@ -17,6 +19,7 @@
       // component name : component instance
       MainHeader: MainHeader,
       MainTodo, //
+      MainFooter,
     },
   }
 </script>
