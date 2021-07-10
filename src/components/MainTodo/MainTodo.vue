@@ -31,10 +31,12 @@
     name: 'MainTodo',
     data() {
       return {
+        email: '',
+        visible: false,
         todoData: [],
         content: '',
         total: 0,
-        filter: 'all',
+        filter: 'all'
       }
     },
     methods: {
@@ -44,7 +46,7 @@
         this.todoData.unshift({
           id: id++,
           content: this.content,
-          completed: false,
+          completed: false
         })
 
         this.content = ''
@@ -60,7 +62,7 @@
       },
       handleClear() {
         this.todoData = this.todoData.filter((item) => item.completed == false)
-      },
+      }
     },
     watch: {
       todoData: {
@@ -69,8 +71,8 @@
           this.total = this.todoData.filter(
             (item) => item.completed == false
           ).length
-        },
-      },
+        }
+      }
     },
     computed: {
       filterData() {
@@ -84,12 +86,12 @@
           case 'completed':
             return this.todoData.filter((item) => item.completed == true)
         }
-      },
+      }
     },
     components: {
       TodoItem,
-      TodoInfo,
-    },
+      TodoInfo
+    }
   }
 </script>
 
